@@ -1,0 +1,98 @@
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7ED9LZRHVC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7ED9LZRHVC');
+</script>
+</head>
+<style>
+h2 {text-align: center;}
+div{position: relative}
+.instructions{text-align:center;}
+  .vid{position: absolute; bottom: 0; right: 0;}
+footer{text-align: center;position: fixed; bottom: 0; left: 0; right: 0; font-size: 16px;}
+#container{
+	margin: 0px auto;
+	width: 200px;
+	height: 125px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 200px;
+	height: 125px;
+	background-color: #666;
+}
+</style>
+<h2 style ="font-family:verdana">
+Below you will find your partner's responses to the questions you just answered. <br> <br>
+Please read them to get to know your partner before you two speak.
+</h2>
+<br>
+<p style="font-family:verdana">
+<strong>fewfewfewfewf Name:</strong> Alex <br><br>
+<strong>Age:</strong> 26 <br><br>
+<strong>Alex's letter to you:</strong>
+</p>
+<div>
+<p style="font-family:verdana;font-size:14px">
+Dear Stranger,<br><br>
+
+Kind of strange to write a letter without knowing you! Not sure exactly what to say, but here goes. <br> <br>
+I have been experimenting with a singing career for three years but now I&rsquo;m back in school - doing the straight path, and yet I feel good about making the change in my life to a new career. I'll never stop loving singing though, that will always be a passion of mine. You know, I didn&rsquo;t feel very conmfortable writing this letter at first, but I&rsquo;m feeling a little better now. But I&rsquo;m not sure what else to write, so I guess I&rsquo;ll stop now. <br> <br>
+
+I can&rsquo;t press submit yet, so I guess I&rsquo;ll write a little more. I take do these surveys on the side, as a way to earn a little extra money. It&rsquo;s interesting that we'll be on a live call... I haven&rsquo;t done one like this before.
+<br><br>
+</p>
+<p style ="font-family:verdana", class = "instructions">
+When you are done reading Alex's responses please press the "Enable Video/Audio" button to set up your camera and microphone. 
+<br> 
+<br> Your browser will ask for permission to access your camera and then your microphone. If you would only like to connect with audio, deny access to your camera and accept access to your microphone.
+<br>
+<br>
+<strong>When you are set up and ready to meet Alex, please click the "Connect" button to continue. <br>If you do not see the "Connect" button, make sure to click "Enable Video/Audio" and set up your camera and microphone first. </strong>
+<br>
+<br>
+ <button onclick = "Permission()" style="font-size:16px;font-family:verdana">
+        Enable Video/Audio
+  </button>
+ <button style="font-size:16px;font-family:verdana;display:none" id = "connect">
+        <a href="https://rascl.berkeley.edu/RSVCCode/connecting%3fauth_key=07123e1f482356c415f684407a3b8723e10b2cbbc0b8fcd6282c49d37c9c1abc.html">Connect</a>
+  </button>
+  </p>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p class = "vid", id="container">
+	<video autoplay="true" id="videoElement">
+	</video>
+</p>
+  </div>
+<script>
+function Permission() {
+    navigator.mediaDevices.getUserMedia({audio: true})
+     setTimeout(function(){
+ document.getElementById('connect').style.display = 'inline';
+ }, 5000)
+ 
+ var video = document.querySelector("#videoElement");
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+}
+</script>
+<footer>
+  Copyright (c) 2021 Relationships and Social Cognition Lab at UC Berkeley
+</footer>
