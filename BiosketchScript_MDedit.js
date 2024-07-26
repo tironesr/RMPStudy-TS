@@ -1,5 +1,5 @@
 // load jspsych
-import {initJsPsych} from './jspsych';
+const lib = require('./jspsych')
 const jsPsych = initJsPsych();
 
 
