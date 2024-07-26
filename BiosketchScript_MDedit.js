@@ -1,3 +1,8 @@
+// load jspsych
+import {initJsPsych} from './jspsych';
+const jsPsych = initJsPsych();
+
+
 // 3-minute timer
 setTimeout(function(){
 document.getElementById('submit').style.display = 'inline';
