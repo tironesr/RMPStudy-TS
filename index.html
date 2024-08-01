@@ -92,6 +92,11 @@ if (navigator.mediaDevices.getUserMedia) {
     });
 }
 }
+	// get PID from URL parameters
+	const urlParams = new URLSearchParams(queryString);
+  	const PID = urlParams.get('PID')
+  	console.log(PID);
+	
 </script>
 <footer>
   Copyright (c) 2021 Relationships and Social Cognition Lab at UC Berkeley
