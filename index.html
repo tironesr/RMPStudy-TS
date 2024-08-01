@@ -94,6 +94,8 @@ if (navigator.mediaDevices.getUserMedia) {
 }
 	// get PID from URL parameters
 	const urlParams = new URLSearchParams(window.location.search);
+	console.log(searchParams.has('PID'));
+	console.log(searchParams.get('PID')); // true
   	const PID = url.searchParams.get('PID');
   	console.log(PID);
 	
