@@ -38,20 +38,19 @@ Before connecting to the live call, you and your partner will be shown each othe
 <footer>
   Copyright (c) 2021 Relationships and Social Cognition Lab at UC Berkeley
 </footer>
-
-    <script type="text/javascript">
-        const jsPsych = initJsPsych();
-        
-        // create a participant ID
-        // and add it to the data object
-        const urlvar = jsPsych.data.getURLVariable();
-        jsPsych.data.addProperties({participant_id: urlvar.PID});
-        console.log(urlvar.PID);
-
-
-    </script>
-
-
+<script>
+   <script src="https://unpkg.com/url-search-params"></script>
+<script>
+function getUrlParameter(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+	</script>
+    <script>
+const urlParams = new URLSearchParams(window.location.search);
+const PID = urlParams.get('PID');
+console.log(PID)
+   </script>
 
     <script src="main.js"></script>
 
