@@ -81,6 +81,16 @@ function getUrlParameter(name) {
   return urlParams.get(name);
 }
 	</script>
+    <script>
+const urlParams = new URLSearchParams(window.location.search);
+const PID = urlParams.get('PID');
+console.log(PID)
+const connectButton = document.getElementById('connect');
+connectButton.addEventListener('click', () => {
+  const newUrl = `https://google.com?PID=${PID}`;
+  window.location.href = newUrl;
+})
+	</script>
 <script>
 function Permission() {
     navigator.mediaDevices.getUserMedia({audio: true})
@@ -99,15 +109,6 @@ if (navigator.mediaDevices.getUserMedia) {
     });
 }
 }</script>
-
-    <script>
-        console.log("Hello World");
-    </script>
-    <script>
-const urlParams = new URLSearchParams(window.location.search);
-const PID = urlParams.get('PID');
-console.log(PID)
-	</script>
 <footer>
   Copyright (c) 2021 Relationships and Social Cognition Lab at UC Berkeley
 </footer>
