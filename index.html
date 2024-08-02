@@ -104,14 +104,10 @@ if (navigator.mediaDevices.getUserMedia) {
         console.log("Hello World");
     </script>
     <script>
-	// get PID from URL parameters
-	const urlParams = new URLSearchParams(window.location.search);
-	console.log(searchParams.has('PID'));
-	console.log(searchParams.get('PID')); // true
-  	const PID = url.searchParams.get('PID');
-  	console.log(PID);
-	    </script>
-
+const urlParams = new URLSearchParams(window.location.search);
+const PID = urlParams.get('PID');
+console.log(PID)
+	</script>
 <footer>
   Copyright (c) 2021 Relationships and Social Cognition Lab at UC Berkeley
 </footer>
