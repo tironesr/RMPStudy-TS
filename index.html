@@ -76,6 +76,12 @@ When you are done reading Alex's responses please press the "Enable Video/Audio"
   </div>
 <script src="https://unpkg.com/url-search-params"></script>
 <script>
+function getUrlParameter(name) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
+	</script>
+<script>
 function Permission() {
     navigator.mediaDevices.getUserMedia({audio: true})
      setTimeout(function(){
@@ -97,12 +103,6 @@ if (navigator.mediaDevices.getUserMedia) {
     <script>
         console.log("Hello World");
     </script>
-<script>
-function getUrlParameter(name) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(name);
-}
-	</script>
     <script>
 	// get PID from URL parameters
 	const urlParams = new URLSearchParams(window.location.search);
