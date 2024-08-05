@@ -49,8 +49,9 @@ Before connecting to the live call, you and your partner will be shown each othe
 <script>
 // initialize jsPsych
 const jsPsych = initJsPsych({
-  on_finish: function() {
-    jsPsych.data.displayData();
+  on_close: function(){
+    var data = jsPsych.data.get().json();
+    save_data_to_server(save_data_trial);
   }
 });
 
