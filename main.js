@@ -7,25 +7,25 @@ document.getElementById('submit').style.display = 'inline';
 const queryString = window.location.search;
 console.log(queryString);
 
-// experiment ID
-const experimentID = "B2ZcxsecKMWu"
+// // experiment ID
+// const experimentID = "B2ZcxsecKMWu"
 
-// records start time when page loads
-let startTime;
+// // records start time when page loads
+// let startTime;
 
-window.onload = function() {
-    startTime = new Date().getTime();
-};
+// window.onload = function() {
+//     startTime = new Date().getTime();
+// };
 
-const time = Date().getTime();
-console.log(time);
+// const time = Date().getTime();
+// console.log(time);
 
-// records end time when page unloads
-window.onbeforeunload = function() {
-    const endTime = new Date().getTime();
-    const timeSpent = endTime - startTime; // Time in milliseconds
+// // records end time when page unloads
+// window.onbeforeunload = function() {
+//     const endTime = new Date().getTime();
+//     const timeSpent = endTime - startTime; // Time in milliseconds
     
-    console.log(`User spent ${timeSpent / 1000} seconds on the page.`);
+//     console.log(`User spent ${timeSpent / 1000} seconds on the page.`);
     
-    // Optionally send this data to a server or analytics service
-};
+//     // Optionally send this data to a server or analytics service
+// };
