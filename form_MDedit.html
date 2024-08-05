@@ -87,11 +87,15 @@ var timeline = [];
 // experiment ID - research how to save it in another JS and import it
 var exprimentID = "ncxCEG3TtFIn";
 
+// Generate a random subject ID.
+const subjectID = jsPsych.randomization.randomID(10)
+console.log({subjectID})
+
 var save_data_trial = {
   type: jsPsychPipe,
   action: "save",
   experiment_id: exprimentID,
-  filename: `RMPtest_data.csv`,
+  filename: `${subjectID}.csv`,
   data_string: function () {
     return jsPsych.data.get().csv() 
   }
