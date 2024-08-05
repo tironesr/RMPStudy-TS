@@ -47,7 +47,7 @@ Before connecting to the live call, you and your partner will be shown each othe
 
 <script>
 // initialize jsPsych
-// const jsPsych = initJsPsych();
+const jsPsych = initJsPsych();
 
 // get PID from URL parameters
 function getUrlParameter(name) {
@@ -59,51 +59,49 @@ const urlParams = new URLSearchParams(window.location.search);
 const PID = urlParams.get('PID');
 console.log(PID)
 
-// // capture how much time a user spends on page
-// // records start time when the page loads
-// let startTime;
+// add PID to data object
+jsPsych.data.addProperties({participant_id: PID});
 
-// window.onload = function() {
-//     startTime = new Date().getTime();
-// }; 
+// capture how much time a user spends on page
+// records start time when the page loads
+let startTime;
 
-// // records end time when the page unloads
-// window.onbeforeunload = function() {
-//     const endTime = new Date().getTime();
-//     const timeSpent = endTime - startTime; // Time in milliseconds
+window.onload = function() {
+    startTime = new Date().getTime();
+}; 
+
+// records end time when the page unloads
+window.onbeforeunload = function() {
+    const endTime = new Date().getTime();
+    const timeSpent = endTime - startTime; // Time in milliseconds
+
+    // add time spent to data object
+    console.log(`User spent ${timeSpent / 1000} seconds on the page.`);
+    jsPsych.data.addProperties({time_spent: timeSpent});
     
-//     console.log(`User spent ${timeSpent / 1000} seconds on the page.`);
-    
-//     // Optionally send this data to a server or analytics service
-// };
+};   
 
+// setup a timeline object 
+var timeline = [];
 
+// experiment ID - research how to save it in another JS and import it
+var exprimentID = "ncxCEG3TtFIn";
 
-   // add PID to data object
-   // jsPsych.data.addProperties({participant_id: PID});
+var save_data_trial = {
+  type: jsPsychPipe,
+  action: "save",
+  experiment_id: exprimentID,
+  filename: `RMPtest_data.csv`,
+  data_string: function () {
+    return jsPsych.data.get().csv() 
+  }
+};
 
-   // // setup a timeline object 
-   // var timeline = [];
+//push saving data to timeline
+timeline.push(save_data_trial);
 
-   // // experiment ID - research how to save it in another JS and import it
-   // var exprimentID = "B2ZcxsecKMWu";
-
-   // // create saving data trial in timeline
-   // var save_data_trial = {
-	  //  type: jsPsychPipe,
-   //         action: "save",
-   //         experiment_id: exprimentID,
-   //         filename: `test_data.csv`,
-   //         data_string: function () {
-   //           return jsPsych.data.get().csv()
-	  //  }
-   // };
-
-   // //push saving data to timeline
-   // timeline.push(save_data_trial);
-
-   // // run the experiment
-   // jsPsych.run(timeline);
+// run the experiment
+jsPsych.run(timeline);
 
 	
 </script>
