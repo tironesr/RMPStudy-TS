@@ -114,20 +114,20 @@ show_clickable_nav: true
 // add the instructions trials to the timeline
 timeline.push(instructionsTrial)
 
-// var save_data_trial = {
-//   type: jsPsychPipe,
-//   action: "save",
-//   experiment_id: exprimentID,
-//   filename: `${subjectID}.csv`,
-//   data_string: function () {
-//     return jsPsych.data.get().csv() 
-//   }
-// };
+var save_data_trial = {
+  type: jsPsychPipe,
+  action: "save",
+  experiment_id: exprimentID,
+  filename: `${subjectID}.csv`,
+  data_string: function () {
+    return jsPsych.data.get().csv() 
+  }
+};
 
-// console.log(save_data_trial);
+console.log(save_data_trial);
 	
-// //push saving data to timeline
-// timeline.push(save_data_trial);
+//push saving data to timeline
+timeline.push(save_data_trial);
 
 // run the experiment
 jsPsych.run(timeline);
