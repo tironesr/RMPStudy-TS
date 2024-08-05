@@ -88,8 +88,8 @@ var timeline = [];
 var exprimentID = "ncxCEG3TtFIn";
 
 // Generate a random subject ID.
-const subjectID = jsPsych.randomization.randomID(10)
-console.log({subjectID})
+const subjectID = jsPsych.randomization.randomID(10);
+console.log({subjectID});
 
 var save_data_trial = {
   type: jsPsychPipe,
@@ -101,6 +101,8 @@ var save_data_trial = {
   }
 };
 
+console.log(save_data_trial);
+	
 //push saving data to timeline
 timeline.push(save_data_trial);
 
