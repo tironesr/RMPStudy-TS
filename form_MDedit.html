@@ -47,7 +47,11 @@ Before connecting to the live call, you and your partner will be shown each othe
 
 <script>
 // initialize jsPsych
-const jsPsych = initJsPsych();
+const jsPsych = initJsPsych({
+  on_finish: function() {
+    jsPsych.data.displayData();
+  }
+});
 
 // get PID from URL parameters
 function getUrlParameter(name) {
@@ -91,20 +95,20 @@ var exprimentID = "B2ZcxsecKMWu";
 const subjectID = jsPsych.randomization.randomID(10);
 console.log({subjectID});
 
-var save_data_trial = {
-  type: jsPsychPipe,
-  action: "save",
-  experiment_id: exprimentID,
-  filename: `${subjectID}.csv`,
-  data_string: function () {
-    return jsPsych.data.get().csv() 
-  }
-};
+// var save_data_trial = {
+//   type: jsPsychPipe,
+//   action: "save",
+//   experiment_id: exprimentID,
+//   filename: `${subjectID}.csv`,
+//   data_string: function () {
+//     return jsPsych.data.get().csv() 
+//   }
+// };
 
-console.log(save_data_trial);
+// console.log(save_data_trial);
 	
-//push saving data to timeline
-timeline.push(save_data_trial);
+// //push saving data to timeline
+// timeline.push(save_data_trial);
 
 // run the experiment
 jsPsych.run(timeline);
