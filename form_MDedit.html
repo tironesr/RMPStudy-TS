@@ -95,6 +95,24 @@ var exprimentID = "B2ZcxsecKMWu";
 const subjectID = jsPsych.randomization.randomID(10);
 console.log({subjectID});
 
+// create a an instruction trial using the jsPsychInstructions plugin
+var instructionsTrial = {
+type: jsPsychInstructions,
+pages: [
+  'Welcome to the experiment. Click Continue to begin.',
+  'On each trial, you will be shown images of people and asked to rate your perceptions of them.',
+  'People vary in how much cultural capital they have, which is defined as being familar or competent in the tastes, style, and mannerisms of the upper class.',
+  'For example, people who are like to go to museums or play golf would be considered to have high levels of cultural capital.',
+  'For each image presented, you will be asked to rate how much cultural captial each person has. Please press Continue to begin.'
+],
+button_label_next: "Continue",
+button_label_previous: "Go Back",
+show_clickable_nav: true
+}
+
+// add the instructions trials to the timeline
+timeline.push(instructionsTrial)
+
 // var save_data_trial = {
 //   type: jsPsychPipe,
 //   action: "save",
