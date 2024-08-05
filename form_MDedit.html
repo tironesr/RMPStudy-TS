@@ -59,23 +59,23 @@ const urlParams = new URLSearchParams(window.location.search);
 const PID = urlParams.get('PID');
 console.log(PID)
 
-// capture how much time a user spends on page
-// records start time when the page loads
-let startTime;
+// // capture how much time a user spends on page
+// // records start time when the page loads
+// let startTime;
 
-window.onload = function() {
-    startTime = new Date().getTime();
-}; 
+// window.onload = function() {
+//     startTime = new Date().getTime();
+// }; 
 
-// records end time when the page unloads
-window.onbeforeunload = function() {
-    const endTime = new Date().getTime();
-    const timeSpent = endTime - startTime; // Time in milliseconds
+// // records end time when the page unloads
+// window.onbeforeunload = function() {
+//     const endTime = new Date().getTime();
+//     const timeSpent = endTime - startTime; // Time in milliseconds
     
-    console.log(`User spent ${timeSpent / 1000} seconds on the page.`);
+//     console.log(`User spent ${timeSpent / 1000} seconds on the page.`);
     
-    // Optionally send this data to a server or analytics service
-};
+//     // Optionally send this data to a server or analytics service
+// };
 
 
 
