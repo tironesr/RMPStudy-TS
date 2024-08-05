@@ -17,6 +17,7 @@ window.onload = function() {
     startTime = new Date().getTime();
 };
 
+const startTime = Date().getTime();
 console.log(startTime);
 
 // records end time when page unloads
