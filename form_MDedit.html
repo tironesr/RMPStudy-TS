@@ -98,10 +98,16 @@ const init_camera = {
     type: jsPsychInitializeCamera,
 }
 
+// push initialize camera into timeline
+timeline.push(init_camera)
+	
 // show camera feed
 const mirror_camera = {
     type: jsPsychMirrorCamera,
 }
+
+// push initialize camera into timeline
+timeline.push(mirror_camera)
 
 // create a an instruction trial using the jsPsychInstructions plugin
 const instructionsTrial = {
