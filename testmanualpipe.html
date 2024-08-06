@@ -1,10 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <h1> tester </h1>
-  <body>
-    hi
-    <button id="stopButton">Stop Timer</button>
-  </body>
+    <head>
+        <style>
+            h2 {text-align: center;}
+            div {text-align: center;}
+            div2{position: relative}
+.vid{position: fixed; bottom: 0; right: 0;}
+#container{
+	margin: 0px auto;
+	width: 400px;
+	height: 250px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 400px;
+	height: 250px;
+	background-color: #666;
+}
+        </style>
+        <link rel="stylesheet" href="connecting.css">
+    </head>
+<body style="background-color:#ffffff;">
+      <script src="connecting.js"></script>
+<h2 style ="font-family:verdana">
+Waiting for your partner...
+</h2>
+  <br>
+  <br>
+<div class="loader hide"
+id = "spinner">
+  </div>
+  <br>
+  <br>
+<div class="bottomdiv hide" id="footer">
+<p style ="font-family:verdana">
+Please sit tight, your partner is still viewing your responses. 
+</p>
+</div>
+  <body>    <button id="stopButton">Stop Timer</button>
+</body>
+<div2>
+ <p class = "vid" id="container">
+	<video autoplay="true" id="videoElement">
+	</video>
+</p>
+<script>
+ var video = document.querySelector("#videoElement");
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}</script>
+<br>
+</div2>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</body>
   <script src="https://unpkg.com/url-search-params"></script>
   <script src="https://unpkg.com/jspsych@7.0.0"></script>
   <script>
