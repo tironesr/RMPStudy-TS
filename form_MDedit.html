@@ -63,7 +63,8 @@ window.onbeforeunload = function() {
 // create a an instruction trial using the jsPsychInstructions plugin
 const trial = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: 'Welcome to the experiment.'
+    stimulus: 'Welcome to the experiment.
+    trial_duration: 1000'
 }
 
 const timeline = [trial];
