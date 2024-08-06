@@ -21,9 +21,8 @@ footer{text-align: center;position: absolute; bottom: 0; left: 0; right: 0; font
 <script>
 // initialize jsPsych
 const jsPsych = initJsPsych({
-  on_close: function(){
-    var data = jsPsych.data.get().json();
-    save_data_to_server(save_data_trial);
+  on_finish: function() {
+    jsPsych.data.displayData();
   }
 });
 
