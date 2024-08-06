@@ -93,22 +93,6 @@ window.onbeforeunload = function() {
 // setup a timeline object 
 var timeline = [];
 
-// initialize camera
-const init_camera = {
-    type: jsPsychInitializeCamera,
-}
-
-// push initialize camera into timeline
-timeline.push(init_camera)
-	
-// show camera feed
-const mirror_camera = {
-    type: jsPsychMirrorCamera,
-}
-
-// push initialize camera into timeline
-timeline.push(mirror_camera)
-
 // create a an instruction trial using the jsPsychInstructions plugin
 const instructionsTrial = {
 type: jsPsychInstructions,
@@ -126,20 +110,6 @@ show_clickable_nav: true
 
 // add the instructions trials to the timeline
 timeline.push(instructionsTrial)
-
-// add form for questions while participants wait
-const questionsTrial = {
-  type: jsPsychSurveyHtmlForm,
-  preamble: '<p>How has your own upbringing influenced your thoughts about race? /n Growing up, who had the most influence over you? /n What would you change about your childhood so you better understood racism?</p>',
-  html: '<p> <input type="text" id="test-resp-box" name="response" size="10" /></p>',
-  autofocus: 'test-resp-box',
-  dataAsArray: true,
-  button_label: 'Continue'
-};
-	
-// add the instructions trials to the timeline
-timeline.push(questionsTrial)	
-
 
 // experiment ID - research how to save it in another JS and import it
 var exprimentID = "B2ZcxsecKMWu";
