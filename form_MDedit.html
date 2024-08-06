@@ -48,6 +48,8 @@ Before connecting to the live call, you and your partner will be shown each othe
 <script src="https://unpkg.com/@jspsych/plugin-survey-html-form@2.0.0"></script>
 <script src="https://unpkg.com/@jspsych/plugin-initialize-camera@2.0.0"></script>
 <script src="https://unpkg.com/@jspsych/plugin-mirror-camera@2.0.0"></script>
+<script src="https://unpkg.com/@jspsych/plugin-external-html@1.1.3"></script>
+
 
 <script>
 // initialize jsPsych
@@ -94,22 +96,13 @@ window.onbeforeunload = function() {
 var timeline = [];
 
 // create a an instruction trial using the jsPsychInstructions plugin
-const instructionsTrial = {
-type: jsPsychInstructions,
-pages: [
-  'Welcome to the experiment. Click Continue to begin.',
-  'On each trial, you will be shown images of people and asked to rate your perceptions of them.',
-  'People vary in how much cultural capital they have, which is defined as being familar or competent in the tastes, style, and mannerisms of the upper class.',
-  'For example, people who are like to go to museums or play golf would be considered to have high levels of cultural capital.',
-  'For each image presented, you will be asked to rate how much cultural captial each person has. Please press Continue to begin.'
-],
-button_label_next: "Continue",
-button_label_previous: "Go Back",
-show_clickable_nav: true
-}
+var trial = {
+    type: jsPsychExternalHtml,
+    url: "https://rascl.studentorg.berkeley.edu/RSVCCode/PBiosketch.html",
+};
 
 // add the instructions trials to the timeline
-timeline.push(instructionsTrial)
+timeline.push(trial)
 
 // experiment ID - research how to save it in another JS and import it
 var exprimentID = "B2ZcxsecKMWu";
