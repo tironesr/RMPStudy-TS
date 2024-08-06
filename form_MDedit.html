@@ -12,36 +12,10 @@ footer{text-align: center;position: absolute; bottom: 0; left: 0; right: 0; font
 <script src="https://unpkg.com/@jspsych/plugin-categorize-image@1.1.2"></script>
 <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe@0.3"></script>
 <script src="https://unpkg.com/@jspsych/plugin-external-html@1.1.3"></script>
-
 </head>
 // <h1 style ="font-family:verdana;font-size:24px">
 // Please answer the following questions about yourself so your partner can get to know you.
 // </h1>
-<h3 style ="font-family:verdana">
-Before connecting to the live call, you and your partner will be shown each other's responses.
-</h3>
-<form>
-<label style = "font-family:verdana" for="name">Please input the name you would like your partner to address you by. For example, this could be your given name, a nickname, or your initials.</label><br>
-<input type = "text" id = "name"><br><br>
-<label style = "font-family:verdana" for="age">How old are you?</label><br>
-<input type = "text" id = "age"><br><br><br>
-<label style = "font-family:verdana" for="age">Please write a short letter to your partner with any information about yourself that you feel comfortable sharing.<br> 
-<br> For example, you might include information about your hobbies, your career, or your family.<br>
-<br> You will be given <strong>three</strong> minutes to write, after which the "Submit" button will appear.<br></label>
-<br><textarea name="paragraph_text" cols="90" rows="15"></textarea><br><br>
-</form>
-   <div> 
-   <p style ="font-family:verdana">
-  When you have completed the questions and are ready to view your partner's responses, please click "Submit" below.
-   </p>
-     <button style="font-size:16px;font-family:verdana;display: none" id = "submit">
-        <a href="https://rascl.berkeley.edu/RSVCCode/IncompleteBio%3fauth_key=07123e1f482356c415f684407a3b8723e10b2cbbc0b8fcd6282c49d37c9c1abc.html">Submit</a>
-  </button>
-   </div>   
-<footer>
-  Copyright (c) 2021 Relationships and Social Cognition Lab at UC Berkeley
-</footer>
-
 <!--load packages-->
 <script src="https://unpkg.com/url-search-params"></script>
 <script src="https://unpkg.com/jspsych@7.0.0"></script>
@@ -96,10 +70,10 @@ window.onbeforeunload = function() {
 
 
 // create a an instruction trial using the jsPsychInstructions plugin
-var trial = {
-    type: jsPsychExternalHtml,
-    url: "https://tironesr.github.io/RMPStudy-TS/index.html",
-};
+const trial = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: 'Welcome to the experiment.'
+}
 
 const timeline = [trial];
 
@@ -128,6 +102,30 @@ timeline.push(save_data_trial);
 // run the experiment
 jsPsych.run(timeline);
 
+<h3 style ="font-family:verdana">
+Before connecting to the live call, you and your partner will be shown each other's responses.
+</h3>
+<form>
+<label style = "font-family:verdana" for="name">Please input the name you would like your partner to address you by. For example, this could be your given name, a nickname, or your initials.</label><br>
+<input type = "text" id = "name"><br><br>
+<label style = "font-family:verdana" for="age">How old are you?</label><br>
+<input type = "text" id = "age"><br><br><br>
+<label style = "font-family:verdana" for="age">Please write a short letter to your partner with any information about yourself that you feel comfortable sharing.<br> 
+<br> For example, you might include information about your hobbies, your career, or your family.<br>
+<br> You will be given <strong>three</strong> minutes to write, after which the "Submit" button will appear.<br></label>
+<br><textarea name="paragraph_text" cols="90" rows="15"></textarea><br><br>
+</form>
+   <div> 
+   <p style ="font-family:verdana">
+  When you have completed the questions and are ready to view your partner's responses, please click "Submit" below.
+   </p>
+     <button style="font-size:16px;font-family:verdana;display: none" id = "submit">
+        <a href="https://rascl.berkeley.edu/RSVCCode/IncompleteBio%3fauth_key=07123e1f482356c415f684407a3b8723e10b2cbbc0b8fcd6282c49d37c9c1abc.html">Submit</a>
+  </button>
+   </div>   
+<footer>
+  Copyright (c) 2021 Relationships and Social Cognition Lab at UC Berkeley
+</footer>
 	
 </script>
 
