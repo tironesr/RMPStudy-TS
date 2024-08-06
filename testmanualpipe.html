@@ -6,6 +6,7 @@
     <button id="stopButton">Stop Timer</button>
   </body>
   <script src="https://unpkg.com/url-search-params"></script>
+  <script src="https://unpkg.com/jspsych@7.0.0"></script>
   <script>
 const urlParams = new URLSearchParams(window.location.search);
 const PID = urlParams.get('PID');
@@ -29,6 +30,7 @@ function stopTimer() {
   console.log("Time spent:", time_spent, "seconds");
 
   // Send the POST request
+  const subjectID = jsPsych.randomization.randomID(10);
   var testdata = `"rt","stimulus","response","trial_type","trial_index","time_elapsed","time_spent","participant_id","PID","success"\n` +
                 `"null","null","null","null","null","null","${time_spent}","null","${PID}","null"`;
   fetch("https://pipe.jspsych.org/api/data/", {
@@ -39,7 +41,7 @@ function stopTimer() {
     },
     body: JSON.stringify({
       experimentID: "B2ZcxsecKMWu",
-      filename: "test11.csv",
+      filename: `${subjectID}.csv`,
       data: testdata
     }),
   });
