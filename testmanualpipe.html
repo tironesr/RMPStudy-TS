@@ -1,14 +1,16 @@
+<!DOCTYPE html>
 <html>
   <h1> tester </h1>
   <body>
     hi
+    <button id="stopButton">Stop Timer</button>
   </body>
   <script src="https://unpkg.com/url-search-params"></script>
-    <script>
+  <script>
 const urlParams = new URLSearchParams(window.location.search);
 const PID = urlParams.get('PID');
-console.log(PID)
-    </script>
+console.log(PID);
+  </script>
 <script>
 let startTime;
 let time_spent;
@@ -25,41 +27,28 @@ function stopTimer() {
   clearInterval(timerId);
   time_spent = (performance.now() - startTime) / 1000; // Convert to seconds
   console.log("Time spent:", time_spent, "seconds");
-  // You can now use time_spent for your purposes
+
+  // Run the POST request after calculating time_spent
+  const stopButton = document.getElementById('stopButton');
+  stopButton.addEventListener('click', function() {
+    var testdata = `"rt","stimulus","response","trial_type","trial_index","time_elapsed","time_spent","participant_id","PID","success"\n` +
+                  `"null","null","null","null","null","null","${time_spent}","null","${PID}","null"`;
+    fetch("https://pipe.jspsych.org/api/data/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "*/*",
+      },
+      body: JSON.stringify({
+        experimentID: "B2ZcxsecKMWu",
+        filename: "test10.csv",
+        data: testdata
+      }),
+    });
+  });
 }
 
 // Start timer when page loads
 window.onload = startTimer;
-
-// Assuming you have a button with id="stopButton"
-document.getElementById('stopButton').addEventListener('click', stopTimer);
 </script>
-  <script>
-    const stopButton = document.createElement('button');
-stopButton.id = 'stopButton';
-stopButton.textContent = 'Stop Timer';
-
-// Append the button to the body (you can change this to any desired parent element)
-document.body.appendChild(stopButton);
-
-// Attach the stopTimer function to the button's click event
-stopButton.addEventListener('click', stopTimer);
-  </script>
-  
-  <script>
-var testdata = `"rt","stimulus","response","trial_type","trial_index","time_elapsed","time_spent","participant_id","PID","success"\n` +
-`"null","null","null","null","null","null","${time_spent}","null","${PID}","null"`;
-fetch("https://pipe.jspsych.org/api/data/", {
-method: "POST",
-headers: {
-"Content-Type": "application/json",
-Accept: "*/*",
-},
-body: JSON.stringify({
-experimentID: "B2ZcxsecKMWu",
-filename: "test9.csv",
-data: testdata
-}),
-});
-</script>
-  </html>
+</html>
