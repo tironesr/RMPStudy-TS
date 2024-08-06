@@ -7,8 +7,8 @@ const PID = urlParams.get('PID');
 console.log(PID)
     </script>
   <script>
-var testdata = '"rt","stimulus","response","trial_type","trial_index","time_elapsed","time_spent","participant_id","PID","success"\n' +
-'"null","null","null","null","null","null","null","null",`${PID}`,"null"';
+var testdata = `"rt","stimulus","response","trial_type","trial_index","time_elapsed","time_spent","participant_id","PID","success"\n` +
+`"null","null","null","null","null","null","null","null","${PID}","null"`;
 fetch("https://pipe.jspsych.org/api/data/", {
 method: "POST",
 headers: {
@@ -17,7 +17,7 @@ Accept: "*/*",
 },
 body: JSON.stringify({
 experimentID: "B2ZcxsecKMWu",
-filename: "test8.csv",
+filename: "test9.csv",
 data: testdata
 }),
 });
