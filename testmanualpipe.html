@@ -52,7 +52,7 @@ While you wait, you can reflect on the following questions to guide your convers
 	<br>
 <h4 style ="font-family:verdana">If you need to leave before your patner connects, please click the "Disconnect" button below
 </h4>
-<button style="height:100px;width:200px;font-size:24px" id="stopButton"><a href="tironesr.github.io/RMPStudy-TS/StAGo.html">Disconnect</a></button>
+<button style="height:100px;width:200px;font-size:24px" id="stopButton">Disconnect</button>
 </div>
 <div2>
  <p class = "vid" id="container">
@@ -119,7 +119,7 @@ function startTimer() {
     // You can use this interval to update a display if needed
   }, 100); // Adjust interval as needed
 }
-
+//Calculate elapsed time
 function stopTimer() {
   clearInterval(timerId);
   time_spent = (performance.now() - startTime) / 1000; // Convert to seconds
@@ -141,6 +141,9 @@ function stopTimer() {
       data: testdata
     }),
   });
+//Redirect link
+const newUrl = `https://tironesr.github.io/RMPStudy-TS/StAGo.html`;
+  window.location.href = newUrl;
 }
 
 const stopButton = document.getElementById('stopButton');
