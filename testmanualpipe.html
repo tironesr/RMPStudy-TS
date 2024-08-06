@@ -1,9 +1,9 @@
 <html>
   <h1> tester </h1>
   <script>
-    var testdata = '"rt","stimulus","response","trial_type","trial_index","time_elapsed","internal_node_id","participant_id","result","success"
-"null","Boop","null","html-keyboard-response","0","1002","0.0-0.0","null","",""
-"","","","pipe","1","3330","0.0-1.0","null","{""message"":""Success""}","true"'
+var testdata = '"rt","stimulus","response","trial_type","trial_index","time_elapsed","internal_node_id","participant_id","result","success"\n' +
+'"null","Boop","null","html-keyboard-response","0","1002","0.0-0.0","null","",""\n' +
+'"","","","pipe","1","3330","0.0-1.0","null","{\"message\":\"\"Success\"\"}","true"';
 fetch("https://pipe.jspsych.org/api/data/", {
 method: "POST",
 headers: {
