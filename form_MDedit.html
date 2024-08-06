@@ -22,10 +22,9 @@ footer{text-align: center;position: absolute; bottom: 0; left: 0; right: 0; font
 // initialize jsPsych
 const jsPsych = initJsPsych({
   on_finish: function() {
-    jsPsych.data.get().csv();
+    console.log(jsPsych.data.get().csv());
   }
 });
-
 // get PID from URL parameters
 function getUrlParameter(name) {
    const urlParams = new URLSearchParams(window.location.search);
