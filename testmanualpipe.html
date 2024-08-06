@@ -119,8 +119,9 @@ function startTimer() {
     // You can use this interval to update a display if needed
   }, 100); // Adjust interval as needed
 }
-//Calculate elapsed time
-function stopTimer() {
+	
+async function stopTimer() {
+	//Calclate interval
   clearInterval(timerId);
   time_spent = (performance.now() - startTime) / 1000; // Convert to seconds
   console.log("Time spent:", time_spent, "seconds");
@@ -129,22 +130,29 @@ function stopTimer() {
   const subjectID = jsPsych.randomization.randomID(10);
   var testdata = `"rt","stimulus","response","trial_type","trial_index","time_elapsed","time_spent","participant_id","PID","success"\n` +
                 `"null","null","null","null","null","null","${time_spent}","null","${PID}","null"`;
-  fetch("https://pipe.jspsych.org/api/data/", {
+
+  const response = await fetch("https://pipe.jspsych.org/api/data/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "*/*",
     },
     body: JSON.stringify({
-      experimentID: "B2ZcxsecKMWu",
+      experimentID:   
+ "B2ZcxsecKMWu",
       filename: `${subjectID}.csv`,
       data: testdata
     }),
   });
-//Redirect link
-const newUrl = `https://tironesr.github.io/RMPStudy-TS/StAGo.html`;
-  window.location.href = newUrl;
+
+  const data = await response.json(); // Parse the response (optional)
+  console.log("POST response:", data); // Handle successful response (optional)
+
+  window.location.href = `https://tironesr.github.io/RMPStudy-TS/StAGo.html`;
 }
+
+const stopButton = document.getElementById('stopButton');
+stopButton.addEventListener('click', stopTimer);
 
 const stopButton = document.getElementById('stopButton');
 stopButton.addEventListener('click', stopTimer);
