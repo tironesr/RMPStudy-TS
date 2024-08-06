@@ -154,6 +154,12 @@ async function stopTimer() {
 const stopButton = document.getElementById('stopButton');
 stopButton.addEventListener('click', stopTimer);
 
+// Add event listener for window closing
+window.onbeforeunload = function(event) {
+  stopTimer();  // Call stopTimer on beforeunload
+  return undefined;  // Don't display default confirmation message
+};
+
 // Start timer when page loads
 window.onload = startTimer;
 </script>
