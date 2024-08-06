@@ -1,7 +1,7 @@
 <html>
   <h1> tester </h1>
   <script>
-var testdata = '"rt","stimulus","response","trial_type","trial_index","time_elapsed","internal_node_id","participant_id","PID","success"\n' +
+var testdata = '"rt","stimulus","response","trial_type","trial_index","time_elapsed","time_spent","participant_id","PID","success"\n' +
 '"null","null","null","null","null","null","null","null","null","null"';
 fetch("https://pipe.jspsych.org/api/data/", {
 method: "POST",
@@ -11,7 +11,7 @@ Accept: "*/*",
 },
 body: JSON.stringify({
 experimentID: "B2ZcxsecKMWu",
-filename: "test4.csv",
+filename: "test5.csv",
 data: testdata
 }),
 });
